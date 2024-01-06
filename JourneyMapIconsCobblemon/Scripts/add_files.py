@@ -9,17 +9,18 @@ import pokebase
 #     for dirname in dirnames:
 #         os.rename(dirname, dirname.split('-')[0])
 
-for dirpath, dirnames, filenames in os.walk('E:/Documents/Python Files/JourneyMapIconsCobblemon/test'):
+for dirpath, dirnames, filenames in os.walk('E:/Documents/GitHub/JMallsprites/JourneyMapIconsCobblemon/test'):
     for dirname in dirnames:
         name = dirname.split('_')[1]
         try:
-            shutil.copy(
-                'E:/Documents/Python Files/JourneyMapIconsCobblemon/pokesprite-master/pokemon-gen8/shiny' + '/' + name + '.png',
-                dirpath + '/' + dirname)
-            os.rename(dirpath + '/' + dirname + '/' + name + '.png', dirpath + '/' + dirname + '/' + name + '_shiny.png')
-            shutil.copy(
-                'E:/Documents/Python Files/JourneyMapIconsCobblemon/pokesprite-master/pokemon-gen8/regular' + '/' + name + '.png',
-                dirpath + '/' + dirname)
+            if not os.path.exists(dirpath + '/' + dirname + '/' + name + '.png'):
+                shutil.copy(
+                    'E:/Documents/GitHub/JMallsprites/JourneyMapIconsCobblemon/pokesprite-master/pokemon-gen8/shiny' + '/' + name + '.png',
+                    dirpath + '/' + dirname)
+                os.rename(dirpath + '/' + dirname + '/' + name + '.png', dirpath + '/' + dirname + '/' + name + '_shiny.png')
+                shutil.copy(
+                    'E:/Documents/GitHub/JMallsprites/JourneyMapIconsCobblemon/pokesprite-master/pokemon-gen8/regular' + '/' + name + '.png',
+                    dirpath + '/' + dirname)
         except FileExistsError:
             pass
 

@@ -2,7 +2,7 @@ import os
 import pokebase
 
 # move directory
-os.chdir('E:/Documents/Python Files/JourneyMapIconsCobblemon/test')
+os.chdir('E:/Documents/GitHub/JMallsprites/JourneyMapIconsCobblemon/test')
 # file with all the missing icon ids
 missing_ids_file = open('../missingIDs.txt', 'r')
 # json file with data on each id
@@ -26,7 +26,7 @@ def delete_files_in_directory(directory_path):
         print("Error occurred while deleting files.")
 
 
-delete_files_in_directory('E:/Documents/Python Files/JourneyMapIconsCobblemon/test')
+# delete_files_in_directory('E:/Documents/Python Files/JourneyMapIconsCobblemon/test')
 
 lines = missing_ids_file.readlines()
 for line in lines:
